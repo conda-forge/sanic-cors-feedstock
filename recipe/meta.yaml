@@ -1,5 +1,5 @@
 {% set name = "sanic-cors" %}
-{% set version = "0.10.0.post3" %}
+{% set version = "1.0.1" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/Sanic-Cors-{{ version }}.tar.gz
-  sha256: abb0f8b17d2ecb12d62ecac42ca62bfed9b07fd00ffd83219ad23b99d4df3f23
+  sha256: ac5d40bd45022d21296887d2238891d0ad67308ffba55be809df0151d36071b5
 
 build:
   number: 0
