@@ -1,36 +1,34 @@
-{% set name = "sanic-cors" %}
-{% set version = "0.10.0.post3" %}
-
+{% set version = "2.2.0" %}
 
 package:
-  name: {{ name|lower }}
+  name: sanic-cors
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/Sanic-Cors-{{ version }}.tar.gz
-  sha256: abb0f8b17d2ecb12d62ecac42ca62bfed9b07fd00ffd83219ad23b99d4df3f23
+  url: https://pypi.io/packages/source/s/sanic-cors/Sanic-Cors-{{ version }}.tar.gz
+  sha256: f8d7515da4c8b837871d422c66314c4b5704396a78894b59c50e26aa72a95873
 
 build:
   number: 0
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
     - pip
-    - python
+    - python >=3.7
   run:
-    - python
-    - sanic >=18.12.0
-    - sanic-plugins-framework >=0.9.0
+    - packaging >=21.3
+    - python >=3.7
+    - sanic >=21.9.3
 
 test:
+  requires:
+    - pip
   imports:
     - sanic_cors
   commands:
     - pip check
-  requires:
-    - pip
 
 about:
   home: https://github.com/ashleysommer/sanic-cors
@@ -41,3 +39,4 @@ about:
 extra:
   recipe-maintainers:
     - patricksnape
+    - bollwyvl
