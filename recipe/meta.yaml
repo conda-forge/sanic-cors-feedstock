@@ -5,26 +5,27 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/s/sanic-cors/Sanic-Cors-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/s/sanic-cors/Sanic-Cors-{{ version }}.tar.gz
   sha256: f8d7515da4c8b837871d422c66314c4b5704396a78894b59c50e26aa72a95873
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
     - pip
-    - python >=3.7
+    - python {{ python_min }}
   run:
     - packaging >=21.3
-    - python >=3.7
+    - python >={{ python_min }}
     - sanic >=21.9.3
 
 test:
   requires:
     - pip
+    - python {{ python_min }}
   imports:
     - sanic_cors
   commands:
